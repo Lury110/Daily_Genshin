@@ -30,7 +30,7 @@ const SingleArme = () => {
 
         fetchCards();
     }, []);
-
+    console.log(cardData)
 
     if (!cardData) return <p style={{color: "black"}}>Chargement...</p>;
 
@@ -42,8 +42,8 @@ const SingleArme = () => {
                     <h1>{cardData[0]?.name}</h1>
                     <div className="line"/>
                 </div>
-                <div className="TopPerso" style={{display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%"}}>
-                    <div className="splashArt" style={{width:"29%"}}>
+                <div className="TopPerso" style={{display:"flex", justifyContent:"space-around", alignItems:"center", width:"100%"}}>
+                    <div className="splashArt" style={{width:"22%"}}>
                         <img src={`../weaponsIcon/${cardData[0]?.name}.webp`} alt={`${cardData[0]?.name}`} style={{minHeight:"100px", minWidth:"200px"}}/>
                     </div>
                     <div className="description" style={{display:"flex", flexDirection:"column", width:"69%"}}>
@@ -61,10 +61,10 @@ const SingleArme = () => {
                         {/*<img src={`https://genshin.jmp.blue/materials/weapon-ascension/${cardData.ascensionMaterial}`} alt="" style={{width:"50%"}}/>*/}
                         <p>Type: {cardData[0]?.type}</p>
                     </div>
-                    <div className="updateLevel" style={{textAlign:"center", width:"24%"}}>
-                        {/*<img src={`https://genshin.jmp.blue/materials/weapon-ascension/${cardData.ascensionMaterial}`} alt="" style={{width:"50%"}}/>*/}
+                    <a href={`../Objet/${cardData[1]?.id}`} className="updateLevel" style={{textAlign:"center", width:"24%"}}>
+                        <img src={`../updateApt/${cardData[1]?.name}.webp`} alt="" style={{width:"50%"}}/>
                         <p>{cardData[1]?.name}</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </>

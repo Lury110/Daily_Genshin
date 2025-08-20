@@ -11,14 +11,11 @@ const Personnages = () => {
                 const response = await fetch(BACK_URI+"/character/getCharacters");
                 const data = await response.json();
 
-
-
                 setCardData(data);
             } catch (err) {
                 console.error("Erreur lors du fetch :", err);
             }
         };
-
 
         fetchCards();
     }, []);
@@ -58,10 +55,10 @@ const Personnages = () => {
                 <div id="listingItems">
                     {currentCards.map((result) => (
                         <a href={`./Personnage/${result.id}`} id="parentLight" key={result.id}>
-                            <div>
-                                <img src={`./splashArt/${result.name}.webp`} alt={result.name}
-                                     style={{width: "100%"}}/>
-                                <div id="lightListing" style={{background:`linear-gradient(155deg, rgba(255, 255, 255, 0) 70%, ${color(result.rarity)} 110%)`}}></div>
+                            <img src={`./cardCharacter/${result.name}.png`} alt={result.name}
+                                 style={{width: "100%", height:"100%"}}/>
+                            <div id="lightListing"
+                                 style={{background:`linear-gradient(155deg, rgba(255, 255, 255, 0) 70%, ${color(result.rarity)} 110%)`}}>
                             </div>
                         </a>
                     ))}
@@ -73,30 +70,20 @@ const Personnages = () => {
                     <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>Précédent</button>
 
                     {/* Page 1 */}
-                    {currentPage > 3 && (
-                        <><button onClick={() => goToPage(1)}>1</button><span>...</span></>
-                    )}
+                    {currentPage > 3 && (<><button onClick={() => goToPage(1)}>1</button><span>...</span></>)}
 
                     {/* Page précédente */}
-                    {currentPage > 1 && (
-                        <button onClick={() => goToPage(currentPage - 1)}>{currentPage - 1}</button>
-                    )}
+                    {currentPage > 1 && (<button onClick={() => goToPage(currentPage - 1)}>{currentPage - 1}</button>)}
 
                     {/*Page actuelle */}
                     <button style={{fontWeight: "bold"}}>{currentPage}</button>
 
                     {/* Deux pages suivantes */}
-                    {currentPage + 1 <= totalPages && (
-                        <button onClick={() => goToPage(currentPage + 1)}>{currentPage + 1}</button>
-                    )}
-                    {currentPage + 2 <= totalPages && (
-                        <button onClick={() => goToPage(currentPage + 2)}>{currentPage + 2}</button>
-                    )}
+                    {currentPage + 1 <= totalPages && (<button onClick={() => goToPage(currentPage + 1)}>{currentPage + 1}</button>)}
+                    {currentPage + 2 <= totalPages && (<button onClick={() => goToPage(currentPage + 2)}>{currentPage + 2}</button>)}
 
                     {/* Dernière page */}
-                    {currentPage + 2 < totalPages && (
-                        <><span>...</span><button onClick={() => goToPage(totalPages)}>{totalPages}</button></>
-                    )}
+                    {currentPage + 2 < totalPages && (<><span>...</span><button onClick={() => goToPage(totalPages)}>{totalPages}</button></>)}
 
                     {/* Suivant */}
                     <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages}>Suivant</button>

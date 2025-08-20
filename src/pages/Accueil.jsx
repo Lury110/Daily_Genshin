@@ -10,7 +10,9 @@ const Accueil = () => {
                     <h1>Accueil</h1>
                     <div className="line"/>
                 </div>
-                <div className="calendar"></div>
+                <div className="calendar" style={{textAlign:"center", color:"white", padding:"30% 0"}}>
+                    Vous devez être connecté
+                </div>
             </div>
         </>
     )

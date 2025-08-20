@@ -58,7 +58,7 @@ const Armes = () => {
                         <a href={`./Arme/${result.id}`} id="parentLight" key={result.id}>
                             <div>
                                 <img src={`../weaponsIcon/${result.name}.webp`} alt={result.name}
-                                     style={{width: "100%", maxHeight:"150px"}}/>
+                                     style={{width: "100%"}}/>
                                 <div id="lightListing" style={{background:`linear-gradient(155deg, rgba(255, 255, 255, 0) 70%, ${color(result.rarity)} 110%)`}}></div>
                             </div>
                         </a>

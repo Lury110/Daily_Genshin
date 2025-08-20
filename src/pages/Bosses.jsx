@@ -19,7 +19,7 @@ const Bosses = () => {
 
         fetchCards();
     }, []);
-
+    console.log(cardData)
 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 12;
@@ -57,8 +57,8 @@ const Bosses = () => {
                     {currentCards.map((result) => (
                         <a href={`./Boss/${result.id}`} id="parentLight" key={result.id}>
                             <div>
-                                <img src={`../materialsIcon/${result.name}.webp`} alt={result.name}
-                                     style={{width: "100%", maxHeight:"150px"}}/>
+                                <img src={`../bossIcon/${result.name?.replace(/:/g, "_")}.webp`} alt={result.name}
+                                     style={{width: "100%"}}/>
                                 <div id="lightListing" style={{background:`linear-gradient(155deg, rgba(255, 255, 255, 0) 70%, ${color(result.rarity)} 110%)`}}></div>
                             </div>
                         </a>
