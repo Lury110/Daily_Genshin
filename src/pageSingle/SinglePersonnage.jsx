@@ -50,6 +50,7 @@ const SinglePersonnage = () => {
 
         fetchCards();
     }, []);
+    console.log(cardData)
 
     if (!cardData) return <p style={{color: "black"}}>Chargement...</p>;
 
@@ -65,8 +66,8 @@ const SinglePersonnage = () => {
                     <div className="line"/>
                 </div>
 
-                <div className="TopPerso" style={{display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%"}}>
-                    <div className="splashArt" style={{width:"29%"}}>
+                <div className="TopPerso" style={{display:"flex", justifyContent:"space-around", alignItems:"center", width:"100%"}}>
+                    <div className="splashArt" style={{width:"22%"}}>
                         <img src={`../splashArt/${cardData[0]?.name}.webp`} alt={`${cardData[0]?.name}`} style={{minHeight:"100px", minWidth:"200px"}}/>
                     </div>
                     <div className="description" style={{display:"flex", flexDirection:"column", width:"69%"}}>
@@ -80,19 +81,19 @@ const SinglePersonnage = () => {
                         <p>{cardData[1]?.name}</p>
                     </a>
                     <div className="updateLevel" style={{textAlign:"center", width:"24%"}}>
-                        {/*<img src={``} alt="" style={{width:"50%"}}/>*/}
+                        <img src={`../bossItemIcon/${cardData[4]?.item_name}.webp`} alt="" style={{width:"50%"}}/>
                         <p>{cardData[4]?.item_name}</p>
                     </div>
-                    <div className="updateSkils" style={{textAlign:"center", width:"24%"}}>
-                        {/*<img src={``} alt="" style={{width:"50%"}}/>*/}
+                    <a href={`../Objet/${cardData[3]?.id}`} className="updateSkils" style={{textAlign:"center", width:"24%"}}>
+                        <img src={`../updateApt/${cardData[3]?.name}.webp`} alt="" style={{width:"50%"}}/>
                         <p>{cardData[3]?.name}</p>
-                    </div>
+                    </a>
                     <div className="bossSkils" style={{textAlign:"center", width:"24%"}}>
-                        {/*<img src={``} alt="" style={{width:"50%"}}/>*/}
+                        <img src={`../bossItemIcon/${cardData[5]?.item_name?.replace(/:/g, "_")}.webp`} alt="" style={{width:"50%"}}/>
                         <p>{cardData[5]?.item_name}</p>
                     </div>
                     <a href={`../Arthefact/${cardData[2]?.id}`} className="artefact" style={{textAlign:"center", width:"24%"}}>
-                        {/*<img src={``} alt="" style={{width:"50%"}}/>*/}
+                        <img src={`../artefactIcon/${cardData[2]?.name}.webp`} alt="" style={{width:"50%"}}/>
                         <p>{cardData[2]?.name}</p>
                     </a>
                 </div>
