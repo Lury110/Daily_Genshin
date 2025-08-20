@@ -20,6 +20,7 @@ const Arthefacts = () => {
 
         fetchCards();
     }, []);
+    console.log(cardData)
 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 12;
@@ -57,7 +58,7 @@ const Arthefacts = () => {
                     {currentCards.map((result) => (
                         <a href={`./Arthefact/${result.id}`} id="parentLight" key={result.id}>
                             <div>
-                                <img src={`https://genshin.jmp.blue/artifacts/${result.id}/flower-of-life`} alt={result.name} style={{width: "100%"}}/>
+                                <img src={`../artefactIcon/${result?.name}.webp`} alt={result.name} style={{width: "100%"}}/>
                                 <div id="lightListing" style={{background:`linear-gradient(155deg, rgba(255, 255, 255, 0) 70%, ${color(result.rarity)} 110%)`}}></div>
                             </div>
                         </a>

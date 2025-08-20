@@ -43,9 +43,9 @@ const SingleArthefact = () => {
                     <h1>{cardData[0]?.name}</h1>
                     <div className="line"/>
                 </div>
-                <div className="TopPerso" style={{display:"flex", justifyContent:"space-between", alignItems:"center", width:"100%"}}>
-                    <div className="splashArt" style={{width:"29%"}}>
-                        {/*<img src={`../artefactsIcon/${cardData[0]?.name}.webp`} alt={`${cardData[0]?.name`} style={{minHeight:"100px", minWidth:"200px"}}/>*/}
+                <div className="TopPerso" style={{display:"flex", justifyContent:"space-around", alignItems:"center", width:"100%"}}>
+                    <div className="splashArt" style={{width:"22%"}}>
+                        <img src={`../artefactIcon/${cardData[0]?.name}.webp`} alt={`${cardData[0]?.name}`} style={{minHeight:"100px", minWidth:"200px"}}/>
                     </div>
                     <div className="description" style={{display:"flex", flexDirection:"column", width:"69%"}}>
                         <p style={{marginBottom:"1rem"}}>Bonus 2 pièces: {cardData[0]?.bonus2}</p>
@@ -57,7 +57,7 @@ const SingleArthefact = () => {
                     {cardData[1]?.map((result) => (
                         <a href={`../Personnage/${result.id}`} key={result.id} style={{textAlign:"center", width:"23%"}}>
                             <div>
-                                <img src={`../splashArt/${result.name}.webp`} alt="" style={{width:"50%"}}/>
+                                <img src={`../cardCharacter/${result.name}.png`} alt="" style={{width:"50%", height:"100%"}}/>
                                 <p>{result.name?.replace(/_/g, " ")}</p>
                             </div>
                         </a>
